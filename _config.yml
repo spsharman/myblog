@@ -48,7 +48,7 @@ jekyll-archives:
 
 # Disqus comments
 # disqus_shortname: bencentra
-# disqus_shortname: steve_sharman
+disqus_shortname: steve_sharman
 
 # Google analytics
 # ga_tracking_id: "UA-XXXX-1"
