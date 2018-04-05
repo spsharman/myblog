@@ -3,15 +3,15 @@
   <channel>
     <title></title>
     <description></description>
-    <link>https://spsharman.github.io/</link>
-    <atom:link href="https://spsharman.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Apr 2018 16:30:46 +0100</pubDate>
-    <lastBuildDate>Tue, 03 Apr 2018 16:30:46 +0100</lastBuildDate>
+    <link>http://rwhitear42.github.io/steveBlog/</link>
+    <atom:link href="http://rwhitear42.github.io/steveBlog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 05 Apr 2018 10:28:04 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Apr 2018 10:28:04 +0100</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>ACI: Using Leaf Profiles</title>
-        <description>&lt;p&gt;In my previous &lt;a href=&quot;https://spsharman.github.io/myblog/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
+        <description>&lt;p&gt;In my previous &lt;a href=&quot;http://rwhitear42.github.io/steveBlog/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
 
 &lt;p&gt;There are two ways of using Leaf Profiles (Interface Policies)&lt;/p&gt;
 &lt;ul&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;For example I might build a Leaf Profile which defines the interfaces used when my ESX Hosts connect to the network:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture1.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture1.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -108,7 +108,7 @@
 
 &lt;p&gt;What’s nice with a Device Centric Model is that every physical switch where I attach the ESX_Hosts Profile will have interfaces 1/1-6 configured.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture2.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture2.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -117,7 +117,7 @@
 
 &lt;p&gt;For example I might build a Leaf Profile which defines the interfaces for a specific switch:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture3.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture3.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -158,7 +158,7 @@
 
 &lt;p&gt;What’s nice with this approach is that I have ultimate flexibility, the downside is that I would have to repeat the configuration for each switch (or pair of switches) in the network:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture4.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture4.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -170,8 +170,8 @@
 &lt;p&gt;My personal choice is to use a Device Centric approach for compute switches, and a Switch Centric approach for edge racks where lots of flexibility is required.&lt;/p&gt;
 </description>
         <pubDate>Mon, 26 Mar 2018 23:49:00 +0100</pubDate>
-        <link>https://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</link>
-        <guid isPermaLink="true">https://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
+        <link>http://rwhitear42.github.io/steveBlog/aci/2018/03/26/aci-using-leaf-profiles.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
         
         <category>ACI</category>
         
@@ -182,17 +182,17 @@
     
       <item>
         <title>ACI: Configuring network interfaces</title>
-        <description>&lt;p&gt;ACI interface configuration is achieved by defining a series of related policies (Managed Objects) which are modelled in a logical “space” before being applied to one or more physical switches.&lt;/p&gt;
+        <description>&lt;p&gt;ACI interface configuration is achieved by defining a series of related policies (Managed Objects) which are modeled in a logical “space” before being applied to one or more physical switches.&lt;/p&gt;
 
 &lt;p&gt;The ability to model once and apply many times is a key feature of an ACI fabric.&lt;/p&gt;
 
 &lt;p&gt;Configuring switch interfaces is really easy to do once you understand the MO model (shown below). In fact if you’re used to configuring a switch you just need to translate something that you already know to the language of ACI.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-configuring-network-interfaces/object-model.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-configuring-network-interfaces/object-model.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;First you need to navigate to Fabric | Access Polices…..&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-configuring-network-interfaces/fabric-access-policies.png&quot; style=&quot;width:40% !important;height:40% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-configuring-network-interfaces/fabric-access-policies.png&quot; style=&quot;width:40% !important;height:40% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;…..and then working from the bottom up it’s time to do some configuration - it’s always worth tidying up and closing the folders as you go along.&lt;/p&gt;
 
@@ -251,8 +251,8 @@
 &lt;p&gt;After reading this I’m sure that you think that it’s a lot of work to do, and to be fair if you were configuring a single interface on a single switch there are a lot of steps to do. That said, once you’ve made one template you can re-use it time and again.&lt;/p&gt;
 </description>
         <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
-        <link>https://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
-        <guid isPermaLink="true">https://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
+        <link>http://rwhitear42.github.io/steveBlog/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
         
         <category>ACI</category>
         
@@ -262,12 +262,25 @@
       </item>
     
       <item>
+        <title>Jekyll notes</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
+        <link>http://rwhitear42.github.io/steveBlog/2018/03/23/jekyll-notes.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/2018/03/23/jekyll-notes.html</guid>
+        
+        
+      </item>
+    
+      <item>
         <title>My first post</title>
         <description>&lt;p&gt;Have I finally got something working? ….. my top tip, phone a friend!!&lt;/p&gt;
 </description>
         <pubDate>Wed, 21 Mar 2018 09:41:00 +0000</pubDate>
-        <link>https://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</link>
-        <guid isPermaLink="true">https://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</guid>
+        <link>http://rwhitear42.github.io/steveBlog/jekyll/2018/03/21/my-first-post.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/jekyll/2018/03/21/my-first-post.html</guid>
         
         
         <category>jekyll</category>
@@ -332,13 +345,280 @@ function demo(string, times) {
 
 </description>
         <pubDate>Sat, 18 Apr 2015 09:43:59 +0100</pubDate>
-        <link>https://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">https://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
+        <link>http://rwhitear42.github.io/steveBlog/jekyll/2015/04/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
         
         <category>jekyll</category>
         
         
         <category>Jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>disqus</title>
+        <description>&lt;p&gt;Testing out Disqus for comments.&lt;/p&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://spsharman-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+
+</description>
+        <pubDate>Sat, 31 Jan 1970 10:41:00 +0100</pubDate>
+        <link>http://rwhitear42.github.io/steveBlog/1970/01/31/disqus.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/1970/01/31/disqus.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>image-test</title>
+        <description>&lt;p&gt;#Draft blog to test image sizes&lt;/p&gt;
+
+&lt;h2 id=&quot;image-1&quot;&gt;Image 1&lt;/h2&gt;
+&lt;p&gt;This is the original image from a screen grab
+&lt;img src=&quot;/myblog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;image-2&quot;&gt;Image 2&lt;/h2&gt;
+&lt;p&gt;This is the same image edited in seashore to reduce the image size by 50%
+&lt;img src=&quot;/myblog/assets/test-image.png&quot; alt=&quot;image-test&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;image-3&quot;&gt;Image 3&lt;/h2&gt;
+&lt;p&gt;This is the reduced image where I specify the dimensions on screen
+&lt;img src=&quot;/myblog/assets/test-image.png&quot; alt=&quot;image-test&quot; width=&quot;142px&quot; height=&quot;166px&quot; class=&quot;img-responsive&quot; /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/myblog/assets/test-image.png&quot; style=&quot;width:50% !important;height:50% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;image-4&quot;&gt;Image 4&lt;/h2&gt;
+&lt;p&gt;This is just to prove that the reduction in width doesn’t work
+!important &lt;a href=&quot;/myblog/assets/test-image.png&quot; width=&quot;142px&quot; class=&quot;img-responsive&quot;&gt;image-test&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 31 Jan 1970 10:00:00 +0100</pubDate>
+        <link>http://rwhitear42.github.io/steveBlog/1970/01/31/image-test.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/1970/01/31/image-test.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>ACI: Tenants, VRFs, BDs, and EPGs</title>
+        <description>&lt;p&gt;In this post we’re going to take a high level look at some of the building blocks that are used when configuring an ACI network. If you’re coming from a traditional networking background you should easily be able to map the ACI constructs with standard NXOS constructs.&lt;/p&gt;
+
+&lt;h2 id=&quot;tenants&quot;&gt;Tenants&lt;/h2&gt;
+&lt;p&gt;Tenants are simply fabric wide configuration “zones” on the network which can be used represent different environments such as “Production” and “Pre-Production”. There are three built in Tenants (infra, mgmt, common), objects that are built in the “common” Tenant can be consumed by other Tenants.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture1.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;a href=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture1.png&quot; data-lightbox=&quot;picture1-large&quot; data-title=&quot;&quot;&gt;
+&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture1.png&quot; style=&quot;width:100%; height:100%;&quot; /&gt;
+&lt;/a&gt;
+--&gt;
+
+&lt;p&gt;You can think of an ACI Tenant as being &lt;em&gt;similar&lt;/em&gt; to a VDC on a Nexus 7k, however one major difference is that when configuring an ACI Tenant you don’t reserve blocks of interfaces.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;vrfs&quot;&gt;VRFs&lt;/h2&gt;
+&lt;p&gt;VRFs on an ACI fabric are really just the same as a VRF on any other network device. What’s nice with an ACI network is that when you define a VRF it’s automatically available on every leaf switch in the fabric.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture2.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;a href=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture2.png&quot; data-lightbox=&quot;picture2-large&quot; data-title=&quot;&quot;&gt;
+&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture2.png&quot; style=&quot;width:100%; height:100%;&quot; /&gt;
+&lt;/a&gt;
+--&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apic1# show vrf
+ Tenant      Vrf         Consumed Contracts    Provided Contracts    Description                              
+ ----------  ----------  --------------------  --------------------  ----------------------------------------
+ Ciscolive   vrf-01      -                     permit_to_Active_Dir                                           
+                                               ectory                                                         
+ common      copy        -                     -                                                              
+ common      default     -                     -                                                              
+ common      vrf-01      -                     -                                                              
+ infra       ave-ctrl    -                     -                                                              
+ infra       overlay-1   -                     -                                                              
+ iomart      vrf-01      -                     -                                                              
+ iomart      vrf-02      -                     -                                                              
+ mgmt        inb         -                     -                                                              
+ mgmt        oob         -                     -                                                              
+ micdoher    vrf-01      -                     -                                                              
+ rwhitear    vrf-01      -                     -                                                              
+ ssharman    vrf-01      -                     -                                                              
+ ssharman    vrf-02      -                     -                                                              
+ ssharman    vrf-03      -                     -                                                              
+ ssharman    vrf-04      -                     -                                                              
+apic1#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;bridge-domains-vrfs&quot;&gt;Bridge Domains (VRFs)&lt;/h2&gt;
+&lt;p&gt;Bridge Domains are layer 2 segments (under the covers they’re switch local VLANs) which are carried over the ACI fabric in VXLAN frames.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture3.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;a href=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture3.png&quot; data-lightbox=&quot;picture3-large&quot; data-title=&quot;&quot;&gt;
+&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture3.png&quot; style=&quot;width:100%; height:100%;&quot; /&gt;
+&lt;/a&gt;
+--&gt;
+
+&lt;p&gt;Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;fabric XYZ show vlan extended&lt;/code&gt; command on two different switches I can see the Encap (incoming) VLAN and the switch local VLAN.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apic1# fabric 101 show vlan extended
+----------------------------------------------------------------
+ Node 101 (Leaf-101)
+----------------------------------------------------------------
+
+ VLAN Name                             Encap            Ports
+ ---- -------------------------------- ---------------- ------------------------
+ 1    rwhitear:UCSD:6.5                vlan-2077        Eth1/21
+ 2    ssharman:test:bob                vlan-2075        Eth1/21
+ 9    infra:default                    vxlan-16777209,  Eth1/1, Eth1/11,
+                                       vlan-3967        Eth1/21, Eth1/22, Po1
+ 11   common:10.52.248.192_27          vxlan-16252850   Eth1/21
+ 12   common:outside_vlan-8_host-mgmt  vxlan-15237054   Eth1/11, Eth1/21,
+                                                        Eth1/22, Po1
+ 13   common:outside_vlans:vlan-       vlan-8           Eth1/11, Eth1/21,
+      8_host-mgmt                                       Eth1/22, Po1
+ 15   rwhitear:Candid:candid-          vlan-2076        Eth1/21
+      prod.0.9.1.832
+ 17   ssharman:192.168.10.x_24         vxlan-16580489   Eth1/21, Eth1/22
+ 18   ssharman:esx-infrastructure      vlan-2000        Eth1/21, Eth1/22
+      :Host-mgmt
+apic1#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apic1# fabric 102 show vlan extended
+----------------------------------------------------------------
+ Node 102 (Leaf-102)
+----------------------------------------------------------------
+
+ VLAN Name                             Encap            Ports
+ ---- -------------------------------- ---------------- ------------------------
+ 9    infra:default                    vxlan-16777209,  Eth1/1, Eth1/11,
+                                       vlan-3967        Eth1/21, Eth1/22, Po1
+ 11   common:10.52.248.192_27          vxlan-16252850   Eth1/21, Eth1/22
+ 12   common:outside_vlan-8_host-mgmt  vxlan-15237054   Eth1/11, Eth1/21,
+                                                        Eth1/22, Po1
+ 13   common:outside_vlans:vlan-       vlan-8           Eth1/11, Eth1/21,
+      8_host-mgmt                                       Eth1/22, Po1
+ 14   ssharman:outside_infra-          vxlan-15433636   Eth1/11, Eth1/21,
+      ssharman-29                                       Eth1/22, Po1
+ 15   ssharman:lab-infrastructure      vlan-29          Eth1/11, Eth1/21,
+      :infra-ssharman-29                                Eth1/22, Po1
+ 16   micdoher:KUBaM:KUBaM             vlan-2066        Eth1/22
+ 18   ssharman:192.168.10.x_24         vxlan-16580489   Eth1/21, Eth1/22
+ 19   ssharman:esx-infrastructure      vlan-2000        Eth1/21, Eth1/22
+      :Host-mgmt
+apic1#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Understanding the relationship between an incoming (Encap) VLAN, and a switch local VLAN is extremely important because when using switch show commands you must specify the switch local VLAN.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Bridge Domains may (or may not) have an associated anycast IP gateway - think VLAN 10, Interface VLAN 10.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apic1# fabric 101 show ip interface vlan 17
+----------------------------------------------------------------
+ Node 101 (Leaf-101)
+----------------------------------------------------------------
+IP Interface Status for VRF &quot;ssharman:vrf-01&quot;
+vlan17, Interface status: protocol-up/link-up/admin-up, iod: 136, mode: pervasive
+  IP address: 192.168.10.1, IP subnet: 192.168.10.0/24
+  IP broadcast address: 255.255.255.255
+  IP primary address route-preference: 1, tag: 0
+
+
+apic1# fabric 102 show ip interface vlan 18
+----------------------------------------------------------------
+ Node 102 (Leaf-102)
+----------------------------------------------------------------
+IP Interface Status for VRF &quot;ssharman:vrf-01&quot;
+vlan18, Interface status: protocol-up/link-up/admin-up, iod: 134, mode: pervasive
+  IP address: 192.168.10.1, IP subnet: 192.168.10.0/24
+  IP broadcast address: 255.255.255.255
+  IP primary address route-preference: 1, tag: 0
+
+
+apic1#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;endpoint-groups-epgs-and-contracts&quot;&gt;Endpoint Groups (EPGs) and Contracts&lt;/h2&gt;
+&lt;p&gt;EPGs are “security bubbles” for network attached devices. Admission to an EPG is based on switch/interface/VLAN or virtual switch, for example VLAN 10 on interface 101/1/1 = EPG web.&lt;/p&gt;
+
+&lt;p&gt;EPGs are mapped to a single Bridge Domain.&lt;/p&gt;
+
+&lt;p&gt;Communication between EPGs is disabled by default, permitting communication requires a Contract (ACL).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture4.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;a href=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture4.png&quot; data-lightbox=&quot;picture4-large&quot; data-title=&quot;&quot;&gt;
+&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture4.png&quot; style=&quot;width:100%; height:100%;&quot; /&gt;
+&lt;/a&gt;
+--&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;application-profiles&quot;&gt;Application Profiles&lt;/h2&gt;
+&lt;p&gt;An Application Profile is simply a collection of EPGs and Contracts which may or may not represent an Application.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture5.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;a href=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture5.png&quot; data-lightbox=&quot;picture5-large&quot; data-title=&quot;&quot;&gt;
+&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture5.png&quot; style=&quot;width:100%; height:100%;&quot; /&gt;
+&lt;/a&gt;
+--&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;pulling-this-all-together&quot;&gt;Pulling this all together…&lt;/h2&gt;
+&lt;p&gt;When building an ACI network a decision needs to be made where to configure the different objects.&lt;/p&gt;
+
+&lt;p&gt;Many customers build their forwarding functions (VRFs and Bridge Domains) in the “common” tenant and place their Application Profiles and EPGs in a “user” tenant.&lt;/p&gt;
+
+&lt;p&gt;Alternatively customers may place their VRFs, BDs, App Profiles, and EPGs all in a single tenant.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture6.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;a href=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture6.png&quot; data-lightbox=&quot;picture6-large&quot; data-title=&quot;&quot;&gt;
+&lt;img src=&quot;/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture6.png&quot; style=&quot;width:100%; height:100%;&quot; /&gt;
+&lt;/a&gt;
+--&gt;
+</description>
+        <pubDate>Sat, 31 Jan 1970 01:00:00 +0100</pubDate>
+        <link>http://rwhitear42.github.io/steveBlog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</link>
+        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</guid>
+        
+        <category>ACI</category>
+        
+        
+        <category>ACI</category>
         
       </item>
     

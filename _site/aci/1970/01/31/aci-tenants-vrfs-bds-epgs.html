@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ACI: Tenants, VRFs, BDs, and EPGs</title>
+  <meta name="description" content="In this post we’re going to take a high level look at some of the building blocks that are used when configuring an ACI network. If you’re coming from a trad...">
+  
+  <meta name="author" content="Steve Sharman">
+  <meta name="copyright" content="&copy; Steve Sharman 2018">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <!--
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/Xcode.min.css">
+  -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/Xcode.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/steveBlog/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/steveBlog/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/steveBlog/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/steveBlog/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/steveBlog/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/steveBlog/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/steveBlog/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/steveBlog/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/steveBlog/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/steveBlog/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/steveBlog/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/steveBlog/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/steveBlog/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/steveBlog/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/steveBlog/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/steveBlog/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/steveBlog/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="In this post we’re going to take a high level look at some of the building blocks that are used when configuring an ACI network. If you’re coming from a trad..." />
+  <meta property="og:url" content="http://rwhitear42.github.io" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="ACI: Tenants, VRFs, BDs, and EPGs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://rwhitear42.github.io/steveBlog/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ACI: Tenants, VRFs, BDs, and EPGs">
+  <meta name="twitter:description" content="In this post we’re going to take a high level look at some of the building blocks that are used when configuring an ACI network. If you’re coming from a trad...">
+  <meta name="twitter:image" content="http://rwhitear42.github.io/steveBlog/assets/logo.png">
+  <meta name="twitter:url" content="http://rwhitear42.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/steveBlog/css/main.css">
+  <link rel="canonical" href="http://rwhitear42.github.io/steveBlog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html">
+  <link rel="alternate" type="application/rss+xml" title="" href="http://rwhitear42.github.io/steveBlog/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/steveBlog/" class="logo">
+      
+      <span></span>
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+          <li class="nav-link"><a href="/steveBlog/about/">About</a>
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/steveBlog/index.html">Home</a>
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/steveBlog/miscellaneous/">Miscellaneous</a>
+          
+        
+          
+          <li class="nav-link"><a href="/steveBlog/posts/">Posts</a>
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">ACI: Tenants, VRFs, BDs, and EPGs</h1>
+      <!--
+      <p class="info">by <strong>Steve Sharman</strong></p>
+      -->
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">January 31, 1970</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/steveBlog/category/ACI">Aci</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>In this post we’re going to take a high level look at some of the building blocks that are used when configuring an ACI network. If you’re coming from a traditional networking background you should easily be able to map the ACI constructs with standard NXOS constructs.</p>
+
+<h2 id="tenants">Tenants</h2>
+<p>Tenants are simply fabric wide configuration “zones” on the network which can be used represent different environments such as “Production” and “Pre-Production”. There are three built in Tenants (infra, mgmt, common), objects that are built in the “common” Tenant can be consumed by other Tenants.</p>
+
+<p><img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture1.png" style="width:100% !important;height:100% !important;" /></p>
+
+<!--
+<a href="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture1.png" data-lightbox="picture1-large" data-title="">
+<img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture1.png" style="width:100%; height:100%;" />
+</a>
+-->
+
+<p>You can think of an ACI Tenant as being <em>similar</em> to a VDC on a Nexus 7k, however one major difference is that when configuring an ACI Tenant you don’t reserve blocks of interfaces.</p>
+
+<p><br /></p>
+<h2 id="vrfs">VRFs</h2>
+<p>VRFs on an ACI fabric are really just the same as a VRF on any other network device. What’s nice with an ACI network is that when you define a VRF it’s automatically available on every leaf switch in the fabric.</p>
+
+<p><img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture2.png" style="width:100% !important;height:100% !important;" /></p>
+
+<!--
+<a href="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture2.png" data-lightbox="picture2-large" data-title="">
+<img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture2.png" style="width:100%; height:100%;" />
+</a>
+-->
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apic1# show vrf
+ Tenant      Vrf         Consumed Contracts    Provided Contracts    Description                              
+ ----------  ----------  --------------------  --------------------  ----------------------------------------
+ Ciscolive   vrf-01      -                     permit_to_Active_Dir                                           
+                                               ectory                                                         
+ common      copy        -                     -                                                              
+ common      default     -                     -                                                              
+ common      vrf-01      -                     -                                                              
+ infra       ave-ctrl    -                     -                                                              
+ infra       overlay-1   -                     -                                                              
+ iomart      vrf-01      -                     -                                                              
+ iomart      vrf-02      -                     -                                                              
+ mgmt        inb         -                     -                                                              
+ mgmt        oob         -                     -                                                              
+ micdoher    vrf-01      -                     -                                                              
+ rwhitear    vrf-01      -                     -                                                              
+ ssharman    vrf-01      -                     -                                                              
+ ssharman    vrf-02      -                     -                                                              
+ ssharman    vrf-03      -                     -                                                              
+ ssharman    vrf-04      -                     -                                                              
+apic1#
+</code></pre>
+</div>
+
+<p><br /></p>
+<h2 id="bridge-domains-vrfs">Bridge Domains (VRFs)</h2>
+<p>Bridge Domains are layer 2 segments (under the covers they’re switch local VLANs) which are carried over the ACI fabric in VXLAN frames.</p>
+
+<p><img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture3.png" style="width:100% !important;height:100% !important;" /></p>
+
+<!--
+<a href="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture3.png" data-lightbox="picture3-large" data-title="">
+<img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture3.png" style="width:100%; height:100%;" />
+</a>
+-->
+
+<p>Using the <code class="highlighter-rouge">fabric XYZ show vlan extended</code> command on two different switches I can see the Encap (incoming) VLAN and the switch local VLAN.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>apic1# fabric 101 show vlan extended
+----------------------------------------------------------------
+ Node 101 (Leaf-101)
+----------------------------------------------------------------
+
+ VLAN Name                             Encap            Ports
+ ---- -------------------------------- ---------------- ------------------------
+ 1    rwhitear:UCSD:6.5                vlan-2077        Eth1/21
+ 2    ssharman:test:bob                vlan-2075        Eth1/21
+ 9    infra:default                    vxlan-16777209,  Eth1/1, Eth1/11,
+                                       vlan-3967        Eth1/21, Eth1/22, Po1
+ 11   common:10.52.248.192_27          vxlan-16252850   Eth1/21
+ 12   common:outside_vlan-8_host-mgmt  vxlan-15237054   Eth1/11, Eth1/21,
+                                                        Eth1/22, Po1
+ 13   common:outside_vlans:vlan-       vlan-8           Eth1/11, Eth1/21,
+      8_host-mgmt                                       Eth1/22, Po1
+ 15   rwhitear:Candid:candid-          vlan-2076        Eth1/21
+      prod.0.9.1.832
+ 17   ssharman:192.168.10.x_24         vxlan-16580489   Eth1/21, Eth1/22
+ 18   ssharman:esx-infrastructure      vlan-2000        Eth1/21, Eth1/22
+      :Host-mgmt
+apic1#
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apic1# fabric 102 show vlan extended
+----------------------------------------------------------------
+ Node 102 (Leaf-102)
+----------------------------------------------------------------
+
+ VLAN Name                             Encap            Ports
+ ---- -------------------------------- ---------------- ------------------------
+ 9    infra:default                    vxlan-16777209,  Eth1/1, Eth1/11,
+                                       vlan-3967        Eth1/21, Eth1/22, Po1
+ 11   common:10.52.248.192_27          vxlan-16252850   Eth1/21, Eth1/22
+ 12   common:outside_vlan-8_host-mgmt  vxlan-15237054   Eth1/11, Eth1/21,
+                                                        Eth1/22, Po1
+ 13   common:outside_vlans:vlan-       vlan-8           Eth1/11, Eth1/21,
+      8_host-mgmt                                       Eth1/22, Po1
+ 14   ssharman:outside_infra-          vxlan-15433636   Eth1/11, Eth1/21,
+      ssharman-29                                       Eth1/22, Po1
+ 15   ssharman:lab-infrastructure      vlan-29          Eth1/11, Eth1/21,
+      :infra-ssharman-29                                Eth1/22, Po1
+ 16   micdoher:KUBaM:KUBaM             vlan-2066        Eth1/22
+ 18   ssharman:192.168.10.x_24         vxlan-16580489   Eth1/21, Eth1/22
+ 19   ssharman:esx-infrastructure      vlan-2000        Eth1/21, Eth1/22
+      :Host-mgmt
+apic1#
+</code></pre>
+</div>
+<p>Understanding the relationship between an incoming (Encap) VLAN, and a switch local VLAN is extremely important because when using switch show commands you must specify the switch local VLAN.</p>
+
+<p><br />
+Bridge Domains may (or may not) have an associated anycast IP gateway - think VLAN 10, Interface VLAN 10.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>apic1# fabric 101 show ip interface vlan 17
+----------------------------------------------------------------
+ Node 101 (Leaf-101)
+----------------------------------------------------------------
+IP Interface Status for VRF "ssharman:vrf-01"
+vlan17, Interface status: protocol-up/link-up/admin-up, iod: 136, mode: pervasive
+  IP address: 192.168.10.1, IP subnet: 192.168.10.0/24
+  IP broadcast address: 255.255.255.255
+  IP primary address route-preference: 1, tag: 0
+
+
+apic1# fabric 102 show ip interface vlan 18
+----------------------------------------------------------------
+ Node 102 (Leaf-102)
+----------------------------------------------------------------
+IP Interface Status for VRF "ssharman:vrf-01"
+vlan18, Interface status: protocol-up/link-up/admin-up, iod: 134, mode: pervasive
+  IP address: 192.168.10.1, IP subnet: 192.168.10.0/24
+  IP broadcast address: 255.255.255.255
+  IP primary address route-preference: 1, tag: 0
+
+
+apic1#
+</code></pre>
+</div>
+<p><br /></p>
+<h2 id="endpoint-groups-epgs-and-contracts">Endpoint Groups (EPGs) and Contracts</h2>
+<p>EPGs are “security bubbles” for network attached devices. Admission to an EPG is based on switch/interface/VLAN or virtual switch, for example VLAN 10 on interface 101/1/1 = EPG web.</p>
+
+<p>EPGs are mapped to a single Bridge Domain.</p>
+
+<p>Communication between EPGs is disabled by default, permitting communication requires a Contract (ACL).</p>
+
+<p><img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture4.png" style="width:100% !important;height:100% !important;" /></p>
+
+<!--
+<a href="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture4.png" data-lightbox="picture4-large" data-title="">
+<img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture4.png" style="width:100%; height:100%;" />
+</a>
+-->
+
+<p><br /></p>
+<h2 id="application-profiles">Application Profiles</h2>
+<p>An Application Profile is simply a collection of EPGs and Contracts which may or may not represent an Application.</p>
+
+<p><img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture5.png" style="width:100% !important;height:100% !important;" /></p>
+
+<!--
+<a href="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture5.png" data-lightbox="picture5-large" data-title="">
+<img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture5.png" style="width:100%; height:100%;" />
+</a>
+-->
+
+<p><br /></p>
+<h2 id="pulling-this-all-together">Pulling this all together…</h2>
+<p>When building an ACI network a decision needs to be made where to configure the different objects.</p>
+
+<p>Many customers build their forwarding functions (VRFs and Bridge Domains) in the “common” tenant and place their Application Profiles and EPGs in a “user” tenant.</p>
+
+<p>Alternatively customers may place their VRFs, BDs, App Profiles, and EPGs all in a single tenant.</p>
+
+<p><img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture6.png" style="width:100% !important;height:100% !important;" /></p>
+
+<!--
+<a href="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture6.png" data-lightbox="picture6-large" data-title="">
+<img src="/myblog/assets/aci-tenants-vrfs-bds-epgs/old-images/picture6.png" style="width:100%; height:100%;" />
+</a>
+-->
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/steveBlog/tag/ACI">ACI</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/steveBlog/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=ACI%3A+Tenants%2C+VRFs%2C+BDs%2C+and+EPGs&url=http%3A%2F%2Frwhitear42.github.io%2FsteveBlog%2Faci%2F1970%2F01%2F31%2Faci-tenants-vrfs-bds-epgs.html&via=sps2101"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Frwhitear42.github.io%2FsteveBlog%2Faci%2F1970%2F01%2F31%2Faci-tenants-vrfs-bds-epgs.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading"></h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link"><a href="/steveBlog/about/">About</a>
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/steveBlog/index.html">Home</a>
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/steveBlog/miscellaneous/">Miscellaneous</a>
+        
+        
+        
+          <li class="nav-link"><a href="/steveBlog/posts/">Posts</a>
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:spsharman@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">spsharman@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/sps2101" title="Follow me on Twitter">
+              <i class="fa fa-twitter"></i>
+              <span class="username">sps2101</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/spsharman" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">spsharman</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/in/steve-sharman-4b41322/" title="Connect with me on LinkedIn">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">Steve Sharman</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/steveBlog/feed.xml">via RSS</a></strong></p>
+      <p class="text"></p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>
