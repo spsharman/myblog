@@ -5,8 +5,8 @@
     <description></description>
     <link>http://spsharman.github.io/myblog/</link>
     <atom:link href="http://spsharman.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Apr 2018 20:40:29 +0100</pubDate>
-    <lastBuildDate>Thu, 05 Apr 2018 20:40:29 +0100</lastBuildDate>
+    <pubDate>Thu, 05 Apr 2018 22:09:45 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Apr 2018 22:09:45 +0100</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -543,40 +543,6 @@ function demo(string, times) {
       </item>
     
       <item>
-        <title>disqus</title>
-        <description>&lt;p&gt;Testing out Disqus for comments.&lt;/p&gt;
-
-&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://spsharman-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-&lt;/script&gt;
-
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
-
-</description>
-        <pubDate>Sat, 31 Jan 1970 10:41:00 +0100</pubDate>
-        <link>http://spsharman.github.io/myblog/1970/01/31/disqus.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/myblog/1970/01/31/disqus.html</guid>
-        
-        
-      </item>
-    
-      <item>
         <title>image-test</title>
         <description>&lt;p&gt;#Draft blog to test image sizes&lt;/p&gt;
 
@@ -680,6 +646,42 @@ Configuration file: /Users/ssharman/GitHub/blog/_config.yml
         
         
         <category>ACI</category>
+        
+      </item>
+    
+      <item>
+        <title>disqus</title>
+        <description>&lt;p&gt;Testing out Disqus for comments.&lt;/p&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://spsharman-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+
+</description>
+        <pubDate>Sat, 31 Jan 1970 01:00:00 +0100</pubDate>
+        <link>http://spsharman.github.io/myblog/test/1970/01/31/disqus.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/test/1970/01/31/disqus.html</guid>
+        
+        
+        <category>test</category>
         
       </item>
     

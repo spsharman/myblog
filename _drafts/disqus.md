@@ -2,9 +2,9 @@
 layout: post
 title:  "disqus"
 author: Steve Sharman
-date:   1970-01-31 09:41:00 +0000
+date:   1970-01-31 00:00:00 +0000
 published: true
-categories:
+categories: test
 comments: true
 cover:  "/assets/header_image.jpg"
 ---
