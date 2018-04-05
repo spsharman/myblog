@@ -13,11 +13,11 @@ The ability to model once and apply many times is a key feature of an ACI fabric
 
 Configuring switch interfaces is really easy to do once you understand the MO model (shown below). In fact if you're used to configuring a switch you just need to translate something that you already know to the language of ACI.
 
-<img src="/steveBlog/assets/aci-configuring-network-interfaces/object-model.png" style="width:100% !important;height:100% !important;" />
+<img src="/myblog/assets/aci-configuring-network-interfaces/object-model.png" style="width:100% !important;height:100% !important;" />
 
 First you need to navigate to Fabric \| Access Polices.....
 
-<img src="/steveBlog/assets/aci-configuring-network-interfaces/fabric-access-policies.png" style="width:40% !important;height:40% !important;" />
+<img src="/myblog/assets/aci-configuring-network-interfaces/fabric-access-policies.png" style="width:40% !important;height:40% !important;" />
 
 .....and then working from the bottom up it's time to do some configuration - it's always worth tidying up and closing the folders as you go along.
 

@@ -20,7 +20,7 @@ I use the term Device Centric Leaf Profile to describe a Leaf Profile which has 
 
 For example I might build a Leaf Profile which defines the interfaces used when my ESX Hosts connect to the network:
 
-<img src="/steveBlog/assets/aci-using-leaf-profiles/picture1.png" style="width:100% !important;height:100% !important;" />
+<img src="/myblog/assets/aci-using-leaf-profiles/picture1.png" style="width:100% !important;height:100% !important;" />
 
 <br>
 
@@ -47,7 +47,7 @@ Alternatively I might configure in this way where I specify the individual inter
 
 What's nice with a Device Centric Model is that every physical switch where I attach the ESX_Hosts Profile will have interfaces 1/1-6 configured.
 
-<img src="/steveBlog/assets/aci-using-leaf-profiles/picture2.png" style="width:100% !important;height:100% !important;" />
+<img src="/myblog/assets/aci-using-leaf-profiles/picture2.png" style="width:100% !important;height:100% !important;" />
 
 <br>
 
@@ -56,7 +56,7 @@ I use the term Switch Centric Leaf Profile to describe a Leaf Profile which has 
 
 For example I might build a Leaf Profile which defines the interfaces for a specific switch:
 
-<img src="/steveBlog/assets/aci-using-leaf-profiles/picture3.png" style="width:100% !important;height:100% !important;" />
+<img src="/myblog/assets/aci-using-leaf-profiles/picture3.png" style="width:100% !important;height:100% !important;" />
 
 <br>
 
@@ -72,7 +72,7 @@ __Leaf Profile:__ Leaf_101
 
 What's nice with this approach is that I have ultimate flexibility, the downside is that I would have to repeat the configuration for each switch (or pair of switches) in the network:
 
-<img src="/steveBlog/assets/aci-using-leaf-profiles/picture4.png" style="width:100% !important;height:100% !important;" />
+<img src="/myblog/assets/aci-using-leaf-profiles/picture4.png" style="width:100% !important;height:100% !important;" />
 
 <br>
 
