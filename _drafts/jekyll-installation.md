@@ -4,8 +4,8 @@ title:  "Jekyll Installation"
 author: Steve Sharman
 date:   1970-01-31 00:00:00 +0000
 published: true
-categories: ACI
-tags: ACI
+categories:
+tags: 
 comments: true
 ---
 
