@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <description></description>
+    <link>https://spsharman.github.io/</link>
+    <atom:link href="https://spsharman.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 03 Apr 2018 16:30:46 +0100</pubDate>
+    <lastBuildDate>Tue, 03 Apr 2018 16:30:46 +0100</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>ACI: Using Leaf Profiles</title>
+        <description>&lt;p&gt;In my previous &lt;a href=&quot;https://spsharman.github.io/myblog/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
+
+&lt;p&gt;There are two ways of using Leaf Profiles (Interface Policies)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Device Centric Leaf Profiles&lt;/li&gt;
+  &lt;li&gt;Switch Centric Leaf Profiles&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You won’t find either of these terms in the documentation because I’ve completely made them up :)&lt;/p&gt;
+
+&lt;h1 id=&quot;device-centric-mode&quot;&gt;Device Centric Mode&lt;/h1&gt;
+&lt;p&gt;I use the term Device Centric Leaf Profile to describe a Leaf Profile which has been constructed based on the type of device attaching to the network.&lt;/p&gt;
+
+&lt;p&gt;For example I might build a Leaf Profile which defines the interfaces used when my ESX Hosts connect to the network:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture1.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Leaf Profile:&lt;/strong&gt; ESX_Hosts&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Selectors&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interfaces&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Policy Group&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Policies&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Interface_Range&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/1-6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively I might configure in this way where I specify the individual interfaces as opposed to a range of interfaces:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Selector&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interfaces&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Policy Group&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Policies&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;What’s nice with a Device Centric Model is that every physical switch where I attach the ESX_Hosts Profile will have interfaces 1/1-6 configured.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture2.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;switch-centric-mode&quot;&gt;Switch Centric Mode&lt;/h1&gt;
+&lt;p&gt;I use the term Switch Centric Leaf Profile to describe a Leaf Profile which has been constructed based on the target switch.&lt;/p&gt;
+
+&lt;p&gt;For example I might build a Leaf Profile which defines the interfaces for a specific switch:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture3.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Leaf Profile:&lt;/strong&gt; Leaf_101&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Selector&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interfaces&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Policy Group&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Interface Policies&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Interface_Range&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/1-3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESX_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Interface_Range&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/11-13&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Linux_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Interface_Range&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;eth1/21-23&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Windows_Hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cdp_enabled&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;What’s nice with this approach is that I have ultimate flexibility, the downside is that I would have to repeat the configuration for each switch (or pair of switches) in the network:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture4.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;There’s a no right or wrong way of using Leaf Profiles, in fact you’ll likely use both methods.&lt;/p&gt;
+
+&lt;p&gt;If you take the first approach you’ll (potentially) have less configuration, however if you take the second approach you’ll (potentially) have more configuration.&lt;/p&gt;
+
+&lt;p&gt;My personal choice is to use a Device Centric approach for compute switches, and a Switch Centric approach for edge racks where lots of flexibility is required.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 26 Mar 2018 23:49:00 +0100</pubDate>
+        <link>https://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</link>
+        <guid isPermaLink="true">https://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
+        
+        <category>ACI</category>
+        
+        
+        <category>ACI</category>
+        
+      </item>
+    
+      <item>
+        <title>ACI: Configuring network interfaces</title>
+        <description>&lt;p&gt;ACI interface configuration is achieved by defining a series of related policies (Managed Objects) which are modelled in a logical “space” before being applied to one or more physical switches.&lt;/p&gt;
+
+&lt;p&gt;The ability to model once and apply many times is a key feature of an ACI fabric.&lt;/p&gt;
+
+&lt;p&gt;Configuring switch interfaces is really easy to do once you understand the MO model (shown below). In fact if you’re used to configuring a switch you just need to translate something that you already know to the language of ACI.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-configuring-network-interfaces/object-model.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;First you need to navigate to Fabric | Access Polices…..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-configuring-network-interfaces/fabric-access-policies.png&quot; style=&quot;width:40% !important;height:40% !important;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;…..and then working from the bottom up it’s time to do some configuration - it’s always worth tidying up and closing the folders as you go along.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;VLAN Pools&lt;/strong&gt; are simply a list of VLANs that can be used on the fabric. The VLANs can either be preconfigured within a pool or they can be added to the pool as required - just like configuring a VLAN range on any other switch.&lt;/p&gt;
+
+&lt;p&gt;There are two types of VLAN pools, either static or dynamic.&lt;/p&gt;
+
+&lt;p&gt;I personally like to create a dynamic pool with static ranges.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Static VLANs are allocated manually by the system administrator to match an incoming VLAN ID on given interfaces.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dynamic VLANs are allocated by APIC to automatically configure an EPG. For example APIC can automatically push a VLANs to a VMware port group or to a firewall for service insertion.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Domains&lt;/strong&gt; are a security function which restricts where VLANs can be consumed, for example the VLANs in Pool X consumed by physical servers.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Attachable Access Entity Profiles&lt;/strong&gt; otherwise known as (AAEPs) map VLANs from a given VLAN pool to a Leaf Policy Group which is simply an interface template.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Interface Policies&lt;/strong&gt; are the settings that you want to apply to an interface, e.g. interface speed, cdp, lldp, VLAN significance etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Leaf Policy Groups&lt;/strong&gt; are a combination of Interface Policies such as interface speed, cdp, lldp, VLAN significance etc. Leaf Policy Groups either be of type Access, Port-Channel, or Virtual Port-Channel.&lt;/p&gt;
+
+&lt;p&gt;It’s important to understand that Leaf Policy Groups of type Access can be used across many interfaces, whereas Leaf Policy Groups of type Port-Channel and Virtual Port-Channel have to be unique per attached device because under the covers a unique port-channel ID is created.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Leaf Profiles (Interface Policies)&lt;/strong&gt; are a collection of Interfaces Selectors which in turn contain the physical interface e.g. eth1/1.&lt;/p&gt;
+
+&lt;p&gt;The actual interfaces are configured by mapping a Leaf Policy Group to a given interface ID. Leaf Profiles can be mapped to one or more switches (Leaf Profile | Switch Policies).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Leaf Profiles (Switch Policies)&lt;/strong&gt; represent one or more physical switches where Leaf Profiles (Interface Policies) are applied, for example:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Leafs_1_and_2&lt;/li&gt;
+  &lt;li&gt;Leafs_3_and_4&lt;/li&gt;
+  &lt;li&gt;Leafs_1_to_4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;After reading this I’m sure that you think that it’s a lot of work to do, and to be fair if you were configuring a single interface on a single switch there are a lot of steps to do. That said, once you’ve made one template you can re-use it time and again.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
+        <link>https://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
+        <guid isPermaLink="true">https://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
+        
+        <category>ACI</category>
+        
+        
+        <category>ACI</category>
+        
+      </item>
+    
+      <item>
+        <title>My first post</title>
+        <description>&lt;p&gt;Have I finally got something working? ….. my top tip, phone a friend!!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 21 Mar 2018 09:41:00 +0000</pubDate>
+        <link>https://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</link>
+        <guid isPermaLink="true">https://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-new-posts&quot;&gt;Adding New Posts&lt;/h2&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;h3 id=&quot;tags-and-categories&quot;&gt;Tags and Categories&lt;/h3&gt;
+
+&lt;p&gt;If you list one or more categories or tags in the front matter of your post, they will be included with the post on the page as links. Clicking the link will bring you to an auto-generated archive page for the category or tag, created using the &lt;a href=&quot;https://github.com/jekyll/jekyll-archives&quot;&gt;jekyll-archive&lt;/a&gt; gem.&lt;/p&gt;
+
+&lt;h3 id=&quot;cover-images&quot;&gt;Cover Images&lt;/h3&gt;
+
+&lt;p&gt;To add a cover image to your post, set the “cover” property in the front matter with the relative URL of the image (i.e. &lt;code&gt;cover: &quot;/assets/cover_image.jpg&quot;&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;code-snippets&quot;&gt;Code Snippets&lt;/h3&gt;
+
+&lt;p&gt;You can use &lt;a href=&quot;https://highlightjs.org/&quot;&gt;highlight.js&lt;/a&gt; to add syntax highlight code snippets:&lt;/p&gt;
+
+&lt;p&gt;Use the &lt;a href=&quot;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&quot;&gt;Liquid&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;highlight&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;language&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; tag to add syntax highlighting to code snippets.&lt;/p&gt;
+
+&lt;p&gt;For instance, this template…&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{% highlight javascript %}    
+function demo(string, times) {    
+  for (var i = 0; i &lt;span class=&quot;nt&quot;&gt;&amp;lt; times&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;    
+    &lt;span class=&quot;na&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;    
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;    
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;    
+&lt;span class=&quot;na&quot;&gt;demo&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;world&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;endhighlight&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;…will come out looking like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;demo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;demo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Syntax highlighting is done using &lt;a href=&quot;https://highlightjs.org/&quot;&gt;highlight.js&lt;/a&gt;. You can change the active theme in &lt;a href=&quot;https://github.com/bencentra/centrarium/blob/2dcd73d09e104c3798202b0e14c1db9fa6e77bc7/_includes/head.html#L15&quot;&gt;head.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;images&quot;&gt;Images&lt;/h3&gt;
+
+&lt;p&gt;Lightbox has been enabled for images. To create the link that’ll launch the lightbox, add &lt;code&gt;data-lightbox&lt;/code&gt; and &lt;code&gt;data-title&lt;/code&gt; attributes to an &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; tag around your &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; tag. The result is:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;//bencentra.com/assets/images/falcon9_large.jpg&quot; data-lightbox=&quot;falcon9-large&quot; data-title=&quot;Check out the Falcon 9 from SpaceX&quot;&gt;
+  &lt;img src=&quot;//bencentra.com/assets/images/falcon9_small.jpg&quot; title=&quot;Check out the Falcon 9 from SpaceX&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For more information, check out the &lt;a href=&quot;http://lokeshdhakar.com/projects/lightbox2/&quot;&gt;Lightbox&lt;/a&gt; website.&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 18 Apr 2015 09:43:59 +0100</pubDate>
+        <link>https://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">https://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
+        
+        <category>jekyll</category>
+        
+        
+        <category>Jekyll</category>
+        
+      </item>
+    
+  </channel>
+</rss>

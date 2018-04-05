@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ACI: Using Leaf Profiles</title>
+  <meta name="description" content="In my previous post we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.">
+  
+  <meta name="author" content="Steve Sharman">
+  <meta name="copyright" content="&copy; Steve Sharman 2018">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <!--
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/Xcode.min.css">
+  -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/Xcode.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="In my previous post we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1." />
+  <meta property="og:url" content="https://spsharman.github.io" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="ACI: Using Leaf Profiles" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://spsharman.github.io/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ACI: Using Leaf Profiles">
+  <meta name="twitter:description" content="In my previous post we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.">
+  <meta name="twitter:image" content="https://spsharman.github.io/assets/logo.png">
+  <meta name="twitter:url" content="https://spsharman.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html">
+  <link rel="alternate" type="application/rss+xml" title="" href="https://spsharman.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <span></span>
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/index.html">Home</a>
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/miscellaneous/">Miscellaneous</a>
+          
+        
+          
+          <li class="nav-link"><a href="/posts/">Posts</a>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">ACI: Using Leaf Profiles</h1>
+      <!--
+      <p class="info">by <strong>Steve Sharman</strong></p>
+      -->
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">March 26, 2018</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/ACI">Aci</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>In my previous <a href="https://spsharman.github.io/myblog/aci/2018/03/23/ACI-Configuring-network-interfaces.html">post</a> we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.</p>
+
+<p>There are two ways of using Leaf Profiles (Interface Policies)</p>
+<ul>
+  <li>Device Centric Leaf Profiles</li>
+  <li>Switch Centric Leaf Profiles</li>
+</ul>
+
+<p>You won’t find either of these terms in the documentation because I’ve completely made them up :)</p>
+
+<h1 id="device-centric-mode">Device Centric Mode</h1>
+<p>I use the term Device Centric Leaf Profile to describe a Leaf Profile which has been constructed based on the type of device attaching to the network.</p>
+
+<p>For example I might build a Leaf Profile which defines the interfaces used when my ESX Hosts connect to the network:</p>
+
+<p><img src="/myblog/assets/aci-using-leaf-profiles/picture1.png" style="width:100% !important;height:100% !important;" /></p>
+
+<p><br /></p>
+
+<p><strong>Leaf Profile:</strong> ESX_Hosts</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Interface Selectors</th>
+      <th style="text-align: center">Interfaces</th>
+      <th style="text-align: center">Interface Policy Group</th>
+      <th style="text-align: center">Interface Policies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Interface_Range</td>
+      <td style="text-align: center">eth1/1-6</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Alternatively I might configure in this way where I specify the individual interfaces as opposed to a range of interfaces:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Interface Selector</th>
+      <th style="text-align: center">Interfaces</th>
+      <th style="text-align: center">Interface Policy Group</th>
+      <th style="text-align: center">Interface Policies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">eth1</td>
+      <td style="text-align: center">eth1/1</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">eth2</td>
+      <td style="text-align: center">eth1/2</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">eth3</td>
+      <td style="text-align: center">eth1/3</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">eth4</td>
+      <td style="text-align: center">eth1/4</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">eth5</td>
+      <td style="text-align: center">eth1/5</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">eth6</td>
+      <td style="text-align: center">eth1/6</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>What’s nice with a Device Centric Model is that every physical switch where I attach the ESX_Hosts Profile will have interfaces 1/1-6 configured.</p>
+
+<p><img src="/myblog/assets/aci-using-leaf-profiles/picture2.png" style="width:100% !important;height:100% !important;" /></p>
+
+<p><br /></p>
+
+<h1 id="switch-centric-mode">Switch Centric Mode</h1>
+<p>I use the term Switch Centric Leaf Profile to describe a Leaf Profile which has been constructed based on the target switch.</p>
+
+<p>For example I might build a Leaf Profile which defines the interfaces for a specific switch:</p>
+
+<p><img src="/myblog/assets/aci-using-leaf-profiles/picture3.png" style="width:100% !important;height:100% !important;" /></p>
+
+<p><br /></p>
+
+<p><strong>Leaf Profile:</strong> Leaf_101</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Interface Selector</th>
+      <th style="text-align: center">Interfaces</th>
+      <th style="text-align: center">Interface Policy Group</th>
+      <th style="text-align: center">Interface Policies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Interface_Range</td>
+      <td style="text-align: center">eth1/1-3</td>
+      <td style="text-align: center">ESX_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Interface_Range</td>
+      <td style="text-align: center">eth1/11-13</td>
+      <td style="text-align: center">Linux_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Interface_Range</td>
+      <td style="text-align: center">eth1/21-23</td>
+      <td style="text-align: center">Windows_Hosts</td>
+      <td style="text-align: center">cdp_enabled</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>What’s nice with this approach is that I have ultimate flexibility, the downside is that I would have to repeat the configuration for each switch (or pair of switches) in the network:</p>
+
+<p><img src="/myblog/assets/aci-using-leaf-profiles/picture4.png" style="width:100% !important;height:100% !important;" /></p>
+
+<p><br /></p>
+
+<h2 id="summary">Summary</h2>
+<p>There’s a no right or wrong way of using Leaf Profiles, in fact you’ll likely use both methods.</p>
+
+<p>If you take the first approach you’ll (potentially) have less configuration, however if you take the second approach you’ll (potentially) have more configuration.</p>
+
+<p>My personal choice is to use a Device Centric approach for compute switches, and a Switch Centric approach for edge racks where lots of flexibility is required.</p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/ACI">ACI</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=ACI%3A+Using+Leaf+Profiles&url=https%3A%2F%2Fspsharman.github.io%2Faci%2F2018%2F03%2F26%2Faci-using-leaf-profiles.html&via=sps2101"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fspsharman.github.io%2Faci%2F2018%2F03%2F26%2Faci-using-leaf-profiles.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading"></h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link"><a href="/about/">About</a>
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/index.html">Home</a>
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/miscellaneous/">Miscellaneous</a>
+        
+        
+        
+          <li class="nav-link"><a href="/posts/">Posts</a>
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:spsharman@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">spsharman@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/sps2101" title="Follow me on Twitter">
+              <i class="fa fa-twitter"></i>
+              <span class="username">sps2101</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/spsharman" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">spsharman</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/in/steve-sharman-4b41322/" title="Connect with me on LinkedIn">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">Steve Sharman</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text"></p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>
