@@ -15,7 +15,8 @@ th {
 }
 
 td {
-  border-bottom: $base-border;
+  # border-bottom: $base-border;
+  border: 1px solid darken($base-border-color, 15%);
   padding: $small-spacing 0;
 }
 

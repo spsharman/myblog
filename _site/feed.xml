@@ -3,15 +3,15 @@
   <channel>
     <title></title>
     <description></description>
-    <link>http://spsharman.github.io/</link>
-    <atom:link href="http://spsharman.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Apr 2018 10:33:06 +0100</pubDate>
-    <lastBuildDate>Thu, 05 Apr 2018 10:33:06 +0100</lastBuildDate>
+    <link>http://spsharman.github.io/myblog/</link>
+    <atom:link href="http://spsharman.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 05 Apr 2018 20:15:28 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Apr 2018 20:15:28 +0100</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>ACI: Using Leaf Profiles</title>
-        <description>&lt;p&gt;In my previous &lt;a href=&quot;http://spsharman.github.io/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
+        <description>&lt;p&gt;In my previous &lt;a href=&quot;http://spsharman.github.io/myblog/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
 
 &lt;p&gt;There are two ways of using Leaf Profiles (Interface Policies)&lt;/p&gt;
 &lt;ul&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;For example I might build a Leaf Profile which defines the interfaces used when my ESX Hosts connect to the network:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture1.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture1.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -108,7 +108,7 @@
 
 &lt;p&gt;What’s nice with a Device Centric Model is that every physical switch where I attach the ESX_Hosts Profile will have interfaces 1/1-6 configured.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture2.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture2.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -117,7 +117,7 @@
 
 &lt;p&gt;For example I might build a Leaf Profile which defines the interfaces for a specific switch:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture3.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture3.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -158,7 +158,7 @@
 
 &lt;p&gt;What’s nice with this approach is that I have ultimate flexibility, the downside is that I would have to repeat the configuration for each switch (or pair of switches) in the network:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-using-leaf-profiles/picture4.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-using-leaf-profiles/picture4.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -170,8 +170,8 @@
 &lt;p&gt;My personal choice is to use a Device Centric approach for compute switches, and a Switch Centric approach for edge racks where lots of flexibility is required.&lt;/p&gt;
 </description>
         <pubDate>Mon, 26 Mar 2018 23:49:00 +0100</pubDate>
-        <link>http://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
+        <link>http://spsharman.github.io/myblog/aci/2018/03/26/aci-using-leaf-profiles.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
         
         <category>ACI</category>
         
@@ -188,11 +188,11 @@
 
 &lt;p&gt;Configuring switch interfaces is really easy to do once you understand the MO model (shown below). In fact if you’re used to configuring a switch you just need to translate something that you already know to the language of ACI.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-configuring-network-interfaces/object-model.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-configuring-network-interfaces/object-model.png&quot; style=&quot;width:100% !important;height:100% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;First you need to navigate to Fabric | Access Polices…..&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/steveBlog/assets/aci-configuring-network-interfaces/fabric-access-policies.png&quot; style=&quot;width:40% !important;height:40% !important;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/myblog/assets/aci-configuring-network-interfaces/fabric-access-policies.png&quot; style=&quot;width:40% !important;height:40% !important;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;…..and then working from the bottom up it’s time to do some configuration - it’s always worth tidying up and closing the folders as you go along.&lt;/p&gt;
 
@@ -251,8 +251,8 @@
 &lt;p&gt;After reading this I’m sure that you think that it’s a lot of work to do, and to be fair if you were configuring a single interface on a single switch there are a lot of steps to do. That said, once you’ve made one template you can re-use it time and again.&lt;/p&gt;
 </description>
         <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
-        <link>http://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
+        <link>http://spsharman.github.io/myblog/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
         
         <category>ACI</category>
         
@@ -263,27 +263,14 @@
     
       <item>
         <title>Jekyll notes</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/myblog/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/myblog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
-        <link>http://spsharman.github.io/2018/03/23/jekyll-notes.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/2018/03/23/jekyll-notes.html</guid>
+        <link>http://spsharman.github.io/myblog/2018/03/23/jekyll-notes.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/2018/03/23/jekyll-notes.html</guid>
         
-        
-      </item>
-    
-      <item>
-        <title>My first post</title>
-        <description>&lt;p&gt;Have I finally got something working? ….. my top tip, phone a friend!!&lt;/p&gt;
-</description>
-        <pubDate>Wed, 21 Mar 2018 09:41:00 +0000</pubDate>
-        <link>http://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</guid>
-        
-        
-        <category>jekyll</category>
         
       </item>
     
@@ -345,8 +332,8 @@ function demo(string, times) {
 
 </description>
         <pubDate>Sat, 18 Apr 2015 09:43:59 +0100</pubDate>
-        <link>http://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
+        <link>http://spsharman.github.io/myblog/jekyll/2015/04/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
         
         <category>jekyll</category>
         
@@ -383,8 +370,8 @@ s.setAttribute('data-timestamp', +new Date());
 
 </description>
         <pubDate>Sat, 31 Jan 1970 10:41:00 +0100</pubDate>
-        <link>http://spsharman.github.io/1970/01/31/disqus.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/1970/01/31/disqus.html</guid>
+        <link>http://spsharman.github.io/myblog/1970/01/31/disqus.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/1970/01/31/disqus.html</guid>
         
         
       </item>
@@ -411,14 +398,88 @@ s.setAttribute('data-timestamp', +new Date());
 &lt;p&gt;This is just to prove that the reduction in width doesn’t work
 !important &lt;a href=&quot;/myblog/assets/test-image.png&quot; width=&quot;142px&quot; class=&quot;img-responsive&quot;&gt;image-test&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/myblog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/myblog/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 31 Jan 1970 10:00:00 +0100</pubDate>
-        <link>http://spsharman.github.io/1970/01/31/image-test.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/1970/01/31/image-test.html</guid>
+        <link>http://spsharman.github.io/myblog/1970/01/31/image-test.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/1970/01/31/image-test.html</guid>
         
+        
+      </item>
+    
+      <item>
+        <title>Jekyll Installation</title>
+        <description>&lt;h1 id=&quot;jekyll-installation&quot;&gt;Jekyll Installation&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SSHARMAN-M-35ZJ:GitHub ssharman$ jekyll new blog
+Running bundle install in /Users/ssharman/GitHub/blog...
+  Bundler: The dependency tzinfo-data (&amp;gt;= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+  Bundler: Fetching gem metadata from https://rubygems.org/...........
+  Bundler: Fetching gem metadata from https://rubygems.org/.
+  Bundler: Resolving dependencies...
+  Bundler: Using public_suffix 3.0.2
+  Bundler: Using addressable 2.5.2
+  Bundler: Using bundler 1.16.1
+  Bundler: Using colorator 1.1.0
+  Bundler: Using concurrent-ruby 1.0.5
+  Bundler: Using eventmachine 1.2.5
+  Bundler: Using http_parser.rb 0.6.0
+  Bundler: Using em-websocket 0.5.1
+  Bundler: Using ffi 1.9.23
+  Bundler: Using forwardable-extended 2.6.0
+  Bundler: Using i18n 0.9.5
+  Bundler: Using rb-fsevent 0.10.3
+  Bundler: Using rb-inotify 0.9.10
+  Bundler: Using sass-listen 4.0.0
+  Bundler: Using sass 3.5.6
+  Bundler: Using jekyll-sass-converter 1.5.2
+  Bundler: Using ruby_dep 1.5.0
+  Bundler: Using listen 3.1.5
+  Bundler: Using jekyll-watch 2.0.0
+  Bundler: Using kramdown 1.16.2
+  Bundler: Using liquid 4.0.0
+  Bundler: Using mercenary 0.3.6
+  Bundler: Using pathutil 0.16.1
+  Bundler: Using rouge 3.1.1
+  Bundler: Using safe_yaml 1.0.4
+  Bundler: Using jekyll 3.7.3
+  Bundler: Using jekyll-feed 0.9.3
+  Bundler: Using jekyll-seo-tag 2.4.0
+  Bundler: Fetching minima 2.4.1
+  Bundler: Installing minima 2.4.1
+  Bundler: Bundle complete! 4 Gemfile dependencies, 29 gems now installed.
+  Bundler: Use `bundle info [gemname]` to see where a bundled gem is installed.
+New jekyll site installed in /Users/ssharman/GitHub/blog.
+SSHARMAN-M-35ZJ:GitHub ssharman$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;change-directory-to-blog&quot;&gt;Change directory to /blog&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SSHARMAN-M-35ZJ:GitHub ssharman$ cd blog/&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;start-jekyll-locally&quot;&gt;Start Jekyll locally&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SSHARMAN-M-35ZJ:blog ssharman$ bundle exec jekyll serve
+Configuration file: /Users/ssharman/GitHub/blog/_config.yml
+            Source: /Users/ssharman/GitHub/blog
+       Destination: /Users/ssharman/GitHub/blog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 0.649 seconds.
+ Auto-regeneration: enabled for '/Users/ssharman/GitHub/blog'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 31 Jan 1970 01:00:00 +0100</pubDate>
+        <link>http://spsharman.github.io/myblog/aci/1970/01/31/jekyll-installation.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/1970/01/31/jekyll-installation.html</guid>
+        
+        <category>ACI</category>
+        
+        
+        <category>ACI</category>
         
       </item>
     
@@ -612,8 +673,8 @@ apic1#
 --&gt;
 </description>
         <pubDate>Sat, 31 Jan 1970 01:00:00 +0100</pubDate>
-        <link>http://spsharman.github.io/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</link>
-        <guid isPermaLink="true">http://spsharman.github.io/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</guid>
+        <link>http://spsharman.github.io/myblog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</guid>
         
         <category>ACI</category>
         
