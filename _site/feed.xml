@@ -3,15 +3,15 @@
   <channel>
     <title></title>
     <description></description>
-    <link>http://rwhitear42.github.io/steveBlog/</link>
-    <atom:link href="http://rwhitear42.github.io/steveBlog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Apr 2018 10:28:04 +0100</pubDate>
-    <lastBuildDate>Thu, 05 Apr 2018 10:28:04 +0100</lastBuildDate>
+    <link>http://spsharman.github.io/</link>
+    <atom:link href="http://spsharman.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 05 Apr 2018 10:33:06 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Apr 2018 10:33:06 +0100</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>ACI: Using Leaf Profiles</title>
-        <description>&lt;p&gt;In my previous &lt;a href=&quot;http://rwhitear42.github.io/steveBlog/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
+        <description>&lt;p&gt;In my previous &lt;a href=&quot;http://spsharman.github.io/aci/2018/03/23/ACI-Configuring-network-interfaces.html&quot;&gt;post&lt;/a&gt; we looked at Leaf Profiles which contain a collection of Interfaces Selectors which in turn contain the physical interface(s) e.g. eth1/1.&lt;/p&gt;
 
 &lt;p&gt;There are two ways of using Leaf Profiles (Interface Policies)&lt;/p&gt;
 &lt;ul&gt;
@@ -170,8 +170,8 @@
 &lt;p&gt;My personal choice is to use a Device Centric approach for compute switches, and a Switch Centric approach for edge racks where lots of flexibility is required.&lt;/p&gt;
 </description>
         <pubDate>Mon, 26 Mar 2018 23:49:00 +0100</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/aci/2018/03/26/aci-using-leaf-profiles.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
+        <link>http://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
         
         <category>ACI</category>
         
@@ -251,8 +251,8 @@
 &lt;p&gt;After reading this I’m sure that you think that it’s a lot of work to do, and to be fair if you were configuring a single interface on a single switch there are a lot of steps to do. That said, once you’ve made one template you can re-use it time and again.&lt;/p&gt;
 </description>
         <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
+        <link>http://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
         
         <category>ACI</category>
         
@@ -263,13 +263,13 @@
     
       <item>
         <title>Jekyll notes</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 23 Mar 2018 09:41:00 +0000</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/2018/03/23/jekyll-notes.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/2018/03/23/jekyll-notes.html</guid>
+        <link>http://spsharman.github.io/2018/03/23/jekyll-notes.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/2018/03/23/jekyll-notes.html</guid>
         
         
       </item>
@@ -279,8 +279,8 @@
         <description>&lt;p&gt;Have I finally got something working? ….. my top tip, phone a friend!!&lt;/p&gt;
 </description>
         <pubDate>Wed, 21 Mar 2018 09:41:00 +0000</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/jekyll/2018/03/21/my-first-post.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/jekyll/2018/03/21/my-first-post.html</guid>
+        <link>http://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/jekyll/2018/03/21/my-first-post.html</guid>
         
         
         <category>jekyll</category>
@@ -345,8 +345,8 @@ function demo(string, times) {
 
 </description>
         <pubDate>Sat, 18 Apr 2015 09:43:59 +0100</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/jekyll/2015/04/18/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
+        <link>http://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/jekyll/2015/04/18/welcome-to-jekyll.html</guid>
         
         <category>jekyll</category>
         
@@ -383,8 +383,8 @@ s.setAttribute('data-timestamp', +new Date());
 
 </description>
         <pubDate>Sat, 31 Jan 1970 10:41:00 +0100</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/1970/01/31/disqus.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/1970/01/31/disqus.html</guid>
+        <link>http://spsharman.github.io/1970/01/31/disqus.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/1970/01/31/disqus.html</guid>
         
         
       </item>
@@ -411,13 +411,13 @@ s.setAttribute('data-timestamp', +new Date());
 &lt;p&gt;This is just to prove that the reduction in width doesn’t work
 !important &lt;a href=&quot;/myblog/assets/test-image.png&quot; width=&quot;142px&quot; class=&quot;img-responsive&quot;&gt;image-test&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/fabric-access-policies.png&quot; alt=&quot;fabric-access-policies&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://rwhitear42.github.io/steveBlog/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://spsharman.github.io/assets/aci-blog-1/object-model.png&quot; alt=&quot;object-model&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 31 Jan 1970 10:00:00 +0100</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/1970/01/31/image-test.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/1970/01/31/image-test.html</guid>
+        <link>http://spsharman.github.io/1970/01/31/image-test.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/1970/01/31/image-test.html</guid>
         
         
       </item>
@@ -612,8 +612,8 @@ apic1#
 --&gt;
 </description>
         <pubDate>Sat, 31 Jan 1970 01:00:00 +0100</pubDate>
-        <link>http://rwhitear42.github.io/steveBlog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</link>
-        <guid isPermaLink="true">http://rwhitear42.github.io/steveBlog/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</guid>
+        <link>http://spsharman.github.io/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/aci/1970/01/31/aci-tenants-vrfs-bds-epgs.html</guid>
         
         <category>ACI</category>
         
