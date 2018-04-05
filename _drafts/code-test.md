@@ -12,7 +12,7 @@ comments: true
 blah, blah, blah....
 
 {% highlight Xcode %}
-```
+
 apic1# show vrf
  Tenant      Vrf         Consumed Contracts    Provided Contracts    Description                              
  ----------  ----------  --------------------  --------------------  ----------------------------------------
@@ -34,5 +34,5 @@ apic1# show vrf
  ssharman    vrf-03      -                     -                                                              
  ssharman    vrf-04      -                     -                                                              
 apic1#
-```
+
 {% endhighlight %}
