@@ -7,6 +7,7 @@ published: true
 categories: ACI
 tags: ACI
 comments: true
+# cover:  "/assets/header_image.jpg"
 ---
 In this post we're going to take a high level look at some of the building blocks that are used when configuring an ACI network. If you're coming from a traditional networking background you should easily be able to map the ACI constructs with standard NXOS constructs.
 

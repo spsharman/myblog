@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "Welcome to Jekyll!"
+author: Steve Sharman
 date:   2015-04-18 08:43:59
 published: true
 categories: Jekyll
 tags:	jekyll
+comments: true
 cover:  "/assets/instacode.png"
 ---
 

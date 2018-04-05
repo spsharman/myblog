@@ -6,6 +6,8 @@ date:   2018-03-23 09:41:00 +0000
 published: true
 categories: ACI
 tags: ACI
+comments: true
+# cover:  "/assets/header_image.jpg"
 ---
 ACI interface configuration is achieved by defining a series of related policies (Managed Objects) which are modeled in a logical "space" before being applied to one or more physical switches.
 
