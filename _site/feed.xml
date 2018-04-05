@@ -5,8 +5,8 @@
     <description></description>
     <link>http://spsharman.github.io/myblog/</link>
     <atom:link href="http://spsharman.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Apr 2018 23:42:12 +0100</pubDate>
-    <lastBuildDate>Thu, 05 Apr 2018 23:42:12 +0100</lastBuildDate>
+    <pubDate>Thu, 05 Apr 2018 23:50:18 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Apr 2018 23:50:18 +0100</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -693,6 +693,46 @@ s.setAttribute('data-timestamp', +new Date());
         
         
         <category>test</category>
+        
+      </item>
+    
+      <item>
+        <title>Code Test</title>
+        <description>&lt;p&gt;blah, blah, blah….&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xcode&quot; data-lang=&quot;xcode&quot;&gt;```
+apic1# show vrf
+ Tenant      Vrf         Consumed Contracts    Provided Contracts    Description                              
+ ----------  ----------  --------------------  --------------------  ----------------------------------------
+ Ciscolive   vrf-01      -                     permit_to_Active_Dir                                           
+                                               ectory                                                         
+ common      copy        -                     -                                                              
+ common      default     -                     -                                                              
+ common      vrf-01      -                     -                                                              
+ infra       ave-ctrl    -                     -                                                              
+ infra       overlay-1   -                     -                                                              
+ iomart      vrf-01      -                     -                                                              
+ iomart      vrf-02      -                     -                                                              
+ mgmt        inb         -                     -                                                              
+ mgmt        oob         -                     -                                                              
+ micdoher    vrf-01      -                     -                                                              
+ rwhitear    vrf-01      -                     -                                                              
+ ssharman    vrf-01      -                     -                                                              
+ ssharman    vrf-02      -                     -                                                              
+ ssharman    vrf-03      -                     -                                                              
+ ssharman    vrf-04      -                     -                                                              
+apic1#
+```&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Sat, 31 Jan 1970 01:00:00 +0100</pubDate>
+        <link>http://spsharman.github.io/myblog/aci/1970/01/31/code-test.html</link>
+        <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/1970/01/31/code-test.html</guid>
+        
+        <category>aci</category>
+        
+        
+        <category>aci</category>
         
       </item>
     
