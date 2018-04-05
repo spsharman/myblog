@@ -4,8 +4,8 @@ title:  "ACI: Tenants, VRFs, BDs, and EPGs"
 author: Steve Sharman
 date:   2018-04-05 00:00:00 +0000
 published: true
-categories: ACI
-tags: ACI
+categories: aci
+tags: aci
 comments: true
 # cover:  "/assets/header_image.jpg"
 ---

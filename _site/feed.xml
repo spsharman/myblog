@@ -5,8 +5,8 @@
     <description></description>
     <link>http://spsharman.github.io/myblog/</link>
     <atom:link href="http://spsharman.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Apr 2018 23:21:17 +0100</pubDate>
-    <lastBuildDate>Thu, 05 Apr 2018 23:21:17 +0100</lastBuildDate>
+    <pubDate>Thu, 05 Apr 2018 23:28:40 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Apr 2018 23:28:40 +0100</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -202,10 +202,10 @@ apic1#
         <link>http://spsharman.github.io/myblog/aci/2018/04/05/aci-tenants-vrfs-bds-epgs.html</link>
         <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/2018/04/05/aci-tenants-vrfs-bds-epgs.html</guid>
         
-        <category>ACI</category>
+        <category>aci</category>
         
         
-        <category>ACI</category>
+        <category>aci</category>
         
       </item>
     
@@ -373,10 +373,10 @@ apic1#
         <link>http://spsharman.github.io/myblog/aci/2018/03/26/aci-using-leaf-profiles.html</link>
         <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/2018/03/26/aci-using-leaf-profiles.html</guid>
         
-        <category>ACI</category>
+        <category>aci</category>
         
         
-        <category>ACI</category>
+        <category>aci</category>
         
       </item>
     
@@ -454,10 +454,10 @@ apic1#
         <link>http://spsharman.github.io/myblog/aci/2018/03/23/aci-configuring-network-interfaces.html</link>
         <guid isPermaLink="true">http://spsharman.github.io/myblog/aci/2018/03/23/aci-configuring-network-interfaces.html</guid>
         
-        <category>ACI</category>
+        <category>aci</category>
         
         
-        <category>ACI</category>
+        <category>aci</category>
         
       </item>
     

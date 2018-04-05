@@ -4,8 +4,8 @@ title:  "ACI: Using Leaf Profiles"
 author: Steve Sharman
 date:   2018-03-26 22:49:00 +0000
 published: true
-categories: ACI
-tags: ACI
+categories: aci
+tags: aci
 comments: true
 # cover:  "/assets/header_image.jpg"
 ---
