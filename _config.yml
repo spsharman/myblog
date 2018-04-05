@@ -56,7 +56,7 @@ disqus_shortname: spsharman
 # Category descriptions (for archive pages)
 descriptions:
   - cat: aci
-    desc: "Posts decribing how to use ACI"
+#    desc: "Posts decribing how to use ACI"
 
   - cat: jekyll
     desc: "Posts describing Jekyll setup techniques."
