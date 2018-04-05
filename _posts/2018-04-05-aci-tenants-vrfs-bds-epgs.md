@@ -36,7 +36,7 @@ VRFs on an ACI fabric are really just the same as a VRF on any other network dev
 </a>
 -->
 
-{% highlight Xcode %}
+{% highlight Xcode %!important}
 
 apic1# show vrf
  Tenant      Vrf         Consumed Contracts    Provided Contracts    Description                              
