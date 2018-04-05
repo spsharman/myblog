@@ -6,6 +6,7 @@ date:   1970-01-31 09:41:00 +0000
 published: true
 categories:
 comments: true
+cover:  "/assets/header_image.jpg"
 ---
 Testing out Disqus for comments.
 
