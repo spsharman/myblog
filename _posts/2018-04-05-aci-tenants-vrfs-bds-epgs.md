@@ -36,8 +36,8 @@ VRFs on an ACI fabric are really just the same as a VRF on any other network dev
 </a>
 -->
 
-{% highlight Xcode %}
 
+```
 apic1# show vrf
  Tenant      Vrf         Consumed Contracts    Provided Contracts    Description                              
  ----------  ----------  --------------------  --------------------  ----------------------------------------
@@ -58,9 +58,9 @@ apic1# show vrf
  ssharman    vrf-02      -                     -                                                              
  ssharman    vrf-03      -                     -                                                              
  ssharman    vrf-04      -                     -                                                              
-apic1#
 
-{% endhighlight %}
+apic1#
+```
 
 <br>
 ## Bridge Domains (VRFs)
@@ -76,8 +76,7 @@ Bridge Domains are layer 2 segments (under the covers they're switch local VLANs
 
 Using the `fabric XYZ show vlan extended` command on two different switches I can see the Encap (incoming) VLAN and the switch local VLAN.
 
-{% highlight Xcode %}
-
+```
 apic1# fabric 101 show vlan extended
 ----------------------------------------------------------------
  Node 101 (Leaf-101)
@@ -99,12 +98,11 @@ apic1# fabric 101 show vlan extended
  17   ssharman:192.168.10.x_24         vxlan-16580489   Eth1/21, Eth1/22
  18   ssharman:esx-infrastructure      vlan-2000        Eth1/21, Eth1/22
       :Host-mgmt
+
 apic1#
+```
 
-{% endhighlight %}
-
-{% highlight Xcode %}
-
+```
 apic1# fabric 102 show vlan extended
 ----------------------------------------------------------------
  Node 102 (Leaf-102)
@@ -127,17 +125,16 @@ apic1# fabric 102 show vlan extended
  18   ssharman:192.168.10.x_24         vxlan-16580489   Eth1/21, Eth1/22
  19   ssharman:esx-infrastructure      vlan-2000        Eth1/21, Eth1/22
       :Host-mgmt
-apic1#
 
-{% endhighlight %}
+apic1#
+```
 
 Understanding the relationship between an incoming (Encap) VLAN, and a switch local VLAN is extremely important because when using switch show commands you must specify the switch local VLAN.
 
 <br>
 Bridge Domains may (or may not) have an associated anycast IP gateway - think VLAN 10, Interface VLAN 10.
 
-{% highlight Xcode %}
-
+```
 apic1# fabric 101 show ip interface vlan 17
 ----------------------------------------------------------------
  Node 101 (Leaf-101)
@@ -159,10 +156,9 @@ vlan18, Interface status: protocol-up/link-up/admin-up, iod: 134, mode: pervasiv
   IP broadcast address: 255.255.255.255
   IP primary address route-preference: 1, tag: 0
 
-
 apic1#
+```
 
-{% endhighlight %}
 <br>
 ## Endpoint Groups (EPGs) and Contracts
 EPGs are "security bubbles" for network attached devices. Admission to an EPG is based on switch/interface/VLAN or virtual switch, for example VLAN 10 on interface 101/1/1 = EPG web.
